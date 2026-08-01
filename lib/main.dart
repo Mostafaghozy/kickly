@@ -1,10 +1,21 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kickly/features/home/views/home_view.dart';
-import 'package:kickly/features/onboarding/views/onboarding_view.dart';
+import 'package:kickly/features/onboarding/views/first_onboarding_view.dart';
+import 'package:kickly/features/onboarding/views/second_onboarding_view.dart';
+import 'package:kickly/features/onboarding/views/third_onboarding.dart';
 import 'package:kickly/splash_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+
+    // const MyApp()
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +24,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       home: const SplashView(),

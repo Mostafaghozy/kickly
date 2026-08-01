@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:kickly/core/constants/app_colors.dart';
+import 'package:kickly/features/onboarding/views/first_onboarding_view.dart';
 import 'package:kickly/root.dart';
 
 class SplashView extends StatefulWidget {
@@ -65,7 +66,7 @@ class _SplashViewState extends State<SplashView>
       if (mounted) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Root()),
+          MaterialPageRoute(builder: (context) => FirstOnboardingView()),
         );
       }
     });

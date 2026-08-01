@@ -34,7 +34,7 @@ class _RootState extends State<Root> {
       ),
 
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(2),
+        padding: EdgeInsets.symmetric(horizontal: 2, vertical: 1),
         decoration: BoxDecoration(color: AppColors.primary),
         child: BottomNavigationBar(
           elevation: 0,

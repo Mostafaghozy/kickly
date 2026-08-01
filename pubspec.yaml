@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  device_preview: ^1.3.1
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -34,3 +36,4 @@ flutter:
         - asset: font/Mulish-Bold.ttf
         - asset: font/Mulish-Regular.ttf
         - asset: font/Mulish-SemiBold.ttf
+        - asset: font/Mulish-ExtraBold.ttf
