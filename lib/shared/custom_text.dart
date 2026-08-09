@@ -21,7 +21,7 @@ class CustomText extends StatelessWidget {
         color: color ?? Colors.white,
         fontSize: size ?? 14,
         fontWeight: weight ?? FontWeight.w700,
-        fontFamily: "font/Mulish-Bold.ttf",
+        fontFamily: "Mulish",
       ),
     );
   }

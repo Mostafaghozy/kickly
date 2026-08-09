@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kickly/core/constants/app_colors.dart';
+import 'package:kickly/core/constants/app_strings.dart';
 
 class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBarWidget({super.key});
@@ -7,11 +8,10 @@ class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 6),
-        child: Image.asset("assets/home/kickly.png", width: 300),
-      ),
       backgroundColor: AppColors.primary,
+      title: Image.asset("assets/appbar/logo.png", width: 100),
+      centerTitle: false,
+      titleSpacing: 12,
       actions: [
         const Padding(
           padding: EdgeInsets.only(right: 16),

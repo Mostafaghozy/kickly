@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kickly/features/home/widgets/sport_category_card_widget.dart';
+import 'package:kickly/features/home/widgets/sport_category_model.dart';
 
 class SportCategoryWidget extends StatelessWidget {
   const SportCategoryWidget({super.key});
@@ -47,16 +48,4 @@ class SportCategoryWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-class SportCategory {
-  const SportCategory({
-    required this.title,
-    required this.color,
-    required this.image,
-  });
-
-  final String title;
-  final Color color;
-  final String image;
 }
