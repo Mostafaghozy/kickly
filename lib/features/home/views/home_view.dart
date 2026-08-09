@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:kickly/core/constants/app_colors.dart';
 import 'package:kickly/features/home/widgets/home_app_bar_widget.dart';
 import 'package:kickly/features/home/widgets/home_banner_widget.dart';
 import 'package:kickly/features/home/widgets/home_card_widget.dart';
@@ -28,7 +29,12 @@ class HomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(text: "Nearby for you", size: 20),
-                  CustomText(text: "View all"),
+                  CustomText(
+                    text: "View all",
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? AppColors.lightLink
+                        : AppColors.darkText,
+                  ),
                 ],
               ),
               Gap(25),
@@ -38,7 +44,12 @@ class HomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(text: "Top Rated", size: 20),
-                  CustomText(text: "View all"),
+                  CustomText(
+                    text: "View all",
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? AppColors.lightLink
+                        : AppColors.darkText,
+                  ),
                 ],
               ),
               Gap(25),

@@ -8,6 +8,7 @@ class CustomText extends StatelessWidget {
     this.size,
     this.weight,
   });
+
   final String text;
   final Color? color;
   final double? size;
@@ -15,10 +16,13 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final effectiveColor =
+        color ?? Theme.of(context).textTheme.bodyMedium?.color;
+
     return Text(
       text,
       style: TextStyle(
-        color: color ?? Colors.white,
+        color: effectiveColor,
         fontSize: size ?? 14,
         fontWeight: weight ?? FontWeight.w700,
         fontFamily: "Mulish",

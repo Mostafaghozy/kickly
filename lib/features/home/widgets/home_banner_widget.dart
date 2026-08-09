@@ -32,7 +32,10 @@ class HomeBannerWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomText(text: "Find Your Next Game"),
+                      CustomText(
+                        text: "Find Your Next Game",
+                        color: Colors.white,
+                      ),
                       Gap(8),
                       CustomText(
                         text:

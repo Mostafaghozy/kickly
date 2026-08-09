@@ -15,7 +15,7 @@ class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         const Padding(
           padding: EdgeInsets.only(right: 16),
-          child: Icon(Icons.notifications_none_sharp),
+          child: Icon(Icons.notifications_none_sharp, color: Colors.white),
         ),
       ],
     );

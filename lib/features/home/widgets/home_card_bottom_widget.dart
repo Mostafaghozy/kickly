@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:kickly/core/constants/app_colors.dart';
 import 'package:kickly/shared/custom_text.dart';
 
 class HomeCardBottomWidget extends StatelessWidget {
@@ -12,7 +13,9 @@ class HomeCardBottomWidget extends StatelessWidget {
 
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 37, 39, 40),
+        color: Theme.of(context).brightness == Brightness.light
+            ? Colors.white
+            : Color.fromARGB(255, 37, 39, 40),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(12),
           bottomRight: Radius.circular(12),
@@ -24,16 +27,29 @@ class HomeCardBottomWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomText(text: 'Nasr city field', color: Colors.white),
+              CustomText(
+                text: 'Nasr city field',
+                color: Theme.of(context).brightness == Brightness.light
+                    ? AppColors.darkBackground
+                    : AppColors.darkText,
+              ),
               const Gap(8),
               Row(
                 children: [
-                  const Icon(Icons.location_on, color: Colors.white, size: 12),
+                  Icon(
+                    Icons.location_on,
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? AppColors.lightLink
+                        : AppColors.darkText,
+                    size: 15,
+                  ),
                   const Gap(4),
                   CustomText(
                     text: 'Nasr city, Cairo',
                     size: 12,
-                    color: Colors.grey.shade400,
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? Colors.grey.shade700
+                        : Colors.grey.shade400,
                   ),
                 ],
               ),
@@ -45,7 +61,9 @@ class HomeCardBottomWidget extends StatelessWidget {
               CustomText(
                 text: 'E£700/hr',
                 size: 17,
-                color: Colors.white,
+                color: Theme.of(context).brightness == Brightness.light
+                    ? AppColors.primary
+                    : AppColors.darkText,
                 weight: FontWeight.w800,
               ),
               const Gap(5),
