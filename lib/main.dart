@@ -5,16 +5,17 @@ import 'package:kickly/features/home/views/home_view.dart';
 import 'package:kickly/features/onboarding/views/first_onboarding_view.dart';
 import 'package:kickly/features/onboarding/views/second_onboarding_view.dart';
 import 'package:kickly/features/onboarding/views/third_onboarding.dart';
+import 'package:kickly/root.dart';
 import 'package:kickly/splash_view.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
-
-    // const MyApp()
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => MyApp(), // Wrap your app
+    // ),
+    //
+    const MyApp(),
   );
 }
 
@@ -25,10 +26,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
+      // locale: DevicePreview.locale(context),
       debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
       theme: ThemeData(),
-      home: const SplashView(),
+      home: const Root(),
     );
   }
 }

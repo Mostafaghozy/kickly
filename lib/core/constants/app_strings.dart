@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppStrings {
   static Text logoText({Color? color, double? size}) => Text(
-    "Hungry?",
+    "KICKLY",
     style: TextStyle(
       fontSize: size ?? 50,
       color: color ?? Colors.white,
-      fontFamily: "LuckiestGuy",
+      fontFamily: "Mulish-Bold.ttf",
     ),
   );
 }

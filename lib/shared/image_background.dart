@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class OnboardingBackground extends StatelessWidget {
-  const OnboardingBackground({super.key, required this.image});
+class ImageBackground extends StatelessWidget {
+  const ImageBackground({super.key, required this.image});
   final String image;
 
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:kickly/features/onboarding/views/second_onboarding_view.dart';
 import 'package:kickly/features/onboarding/widgets/custom_button.dart';
-import 'package:kickly/features/onboarding/widgets/onboarding_background.dart';
+import 'package:kickly/shared/image_background.dart';
 import 'package:kickly/features/onboarding/widgets/onboarding_indicator.dart';
 import 'package:kickly/features/onboarding/widgets/text_onboarding.dart';
 
@@ -14,7 +14,7 @@ class FirstOnboardingView extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const OnboardingBackground(image: "assets/onboarding/first.jpg"),
+          const ImageBackground(image: "assets/onboarding/first.jpg"),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(28, 0, 24, 55),

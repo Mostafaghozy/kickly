@@ -5,10 +5,18 @@ class TextOnboarding extends StatelessWidget {
     super.key,
     required this.txt,
     required this.description,
+    this.sizeTxt,
+    this.sizeDes,
+    this.textAlign,
+    this.desAlign,
   });
 
   final String txt;
   final String description;
+  final double? sizeTxt;
+  final double? sizeDes;
+  final TextAlign? textAlign;
+  final TextAlign? desAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +25,21 @@ class TextOnboarding extends StatelessWidget {
       children: [
         Text(
           txt,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
+          textAlign: textAlign ?? TextAlign.center,
+          style: TextStyle(
             color: Colors.white,
-            fontSize: 22,
+            fontSize: sizeTxt ?? 22,
             fontWeight: FontWeight.w800,
             fontFamily: "Mulish-Bold.ttf",
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 5),
         Text(
           description,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
+          textAlign: desAlign ?? TextAlign.center,
+          style: TextStyle(
             color: Colors.white70,
-            fontSize: 15,
+            fontSize: sizeDes ?? 15,
             fontFamily: "Mulish-Regular.ttf",
             fontWeight: FontWeight.w400,
           ),
