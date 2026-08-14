@@ -4,8 +4,16 @@ import 'package:kickly/shared/custom_text.dart';
 import 'package:kickly/shared/image_background.dart';
 import 'package:kickly/features/onboarding/widgets/text_onboarding.dart';
 
-class HomeBannerWidget extends StatelessWidget {
-  const HomeBannerWidget({super.key});
+class BannerWidget extends StatelessWidget {
+  const BannerWidget({
+    super.key,
+    required this.image,
+    required this.txt,
+    required this.desc,
+  });
+  final String image;
+  final String txt;
+  final String desc;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +28,7 @@ class HomeBannerWidget extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadiusGeometry.circular(12),
-            child: const ImageBackground(image: "assets/home/first.jpg"),
+            child: ImageBackground(image: image),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10, left: 5),
@@ -32,14 +40,10 @@ class HomeBannerWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomText(
-                        text: "Find Your Next Game",
-                        color: Colors.white,
-                      ),
+                      CustomText(text: txt, color: Colors.white),
                       Gap(8),
                       CustomText(
-                        text:
-                            "Discover nearby sports venues, compare prices, and book your \nfavorite field in just a few taps.",
+                        text: desc,
                         size: 10,
                         color: Colors.grey.shade400,
                       ),

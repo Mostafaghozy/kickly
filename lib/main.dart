@@ -1,9 +1,18 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kickly/core/themes/app_theme.dart';
 import 'package:kickly/root.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+
+    // const MyApp()
+  );
 }
 
 class MyApp extends StatelessWidget {

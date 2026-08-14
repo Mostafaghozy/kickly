@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:kickly/core/constants/app_colors.dart';
-import 'package:kickly/features/home/widgets/home_app_bar_widget.dart';
-import 'package:kickly/features/home/widgets/home_banner_widget.dart';
+import 'package:kickly/shared/custom_app_bar_widget.dart';
+import 'package:kickly/shared/banner_widget.dart';
 import 'package:kickly/features/home/widgets/home_card_widget.dart';
 import 'package:kickly/features/home/widgets/sport_category_widget.dart';
 import 'package:kickly/shared/custom_text.dart';
@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HomeAppBarWidget(),
+      appBar: const CustomAppBarWidget(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
@@ -21,7 +21,12 @@ class HomeView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Gap(30),
-              const HomeBannerWidget(),
+              const BannerWidget(
+                image: "assets/home/first.jpg",
+                txt: "Find Your Next Game",
+                desc:
+                    "Discover nearby sports venues, compare prices, and book your \nfavorite field in just a few taps.",
+              ),
               const Gap(25),
               const SportCategoryWidget(),
               Gap(25),

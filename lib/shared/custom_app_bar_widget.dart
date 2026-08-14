@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kickly/core/constants/app_colors.dart';
 import 'package:kickly/core/constants/app_strings.dart';
 
-class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBarWidget({super.key});
+class CustomAppBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
+  const CustomAppBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
