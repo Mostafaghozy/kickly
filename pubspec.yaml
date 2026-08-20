@@ -32,6 +32,7 @@ flutter:
     - assets/splash/
     - assets/appbar/
     - assets/home/
+    - assets/auth/
 
   fonts:
     - family: Mulish
