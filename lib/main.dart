@@ -9,11 +9,11 @@ import 'package:kickly/features/auth/views/login_view.dart';
 
 void main() {
   runApp(
-    // DevicePreview(
-    //   enabled: !kReleaseMode,
-    //   builder: (context) => MyApp(), // Wrap your app
-    // ),
-    const MyApp(),
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+    // const MyApp(),
   );
 }
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
-      home: const SignInView(),
+      home: const LoginView(),
     );
   }
 }

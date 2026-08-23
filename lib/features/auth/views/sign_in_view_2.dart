@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:kickly/core/constants/app_colors.dart';
+import 'package:kickly/features/auth/views/login_view.dart';
 import 'package:kickly/features/auth/widgets/custom_form_filed.dart';
 import 'package:kickly/features/auth/widgets/google_sign_in_button.dart';
+import 'package:kickly/root.dart';
 import 'package:kickly/shared/custom_button.dart';
 import 'package:kickly/shared/custom_text.dart';
 
@@ -68,9 +70,17 @@ class SignInView2 extends StatelessWidget {
               isPassword: false,
             ),
 
-            const Gap(30),
-            CustomButton(label: "Sign up", onPressed: () {}),
-            const Gap(30),
+            const Gap(50),
+            CustomButton(
+              label: "Sign up",
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Root()),
+                );
+              },
+            ),
+            Gap(30),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 12),
               width: double.infinity,
@@ -82,7 +92,12 @@ class SignInView2 extends StatelessWidget {
                   Gap(5),
                   GestureDetector(
                     onTap: () {
-                      // Navigate to Sign In
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginView(),
+                        ),
+                      );
                     },
                     child: const CustomText(
                       text: "Signin",

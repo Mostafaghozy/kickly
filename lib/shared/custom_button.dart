@@ -12,6 +12,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
+      height: 42,
       child: FilledButton(
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.primary,
