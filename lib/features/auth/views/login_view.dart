@@ -13,6 +13,7 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -21,11 +22,17 @@ class LoginView extends StatelessWidget {
           children: [
             Gap(100),
             Center(
-              child: Image.asset(
-                "assets/appbar/logo.png",
-                width: 279,
-                height: 90,
-              ),
+              child: isLight
+                  ? Image.asset(
+                      "assets/auth/logo.light.png",
+                      width: 279,
+                      height: 90,
+                    )
+                  : Image.asset(
+                      "assets/appbar/logo.png",
+                      width: 279,
+                      height: 90,
+                    ),
             ),
             Gap(24),
             CustomText(
@@ -41,7 +48,7 @@ class LoginView extends StatelessWidget {
             Gap(16),
             CustomText(text: "Password", weight: FontWeight.w700, size: 14),
             Gap(8),
-            CustomFormFiled(hintText: 'Enter your password', isPassword: false),
+            CustomFormFiled(hintText: 'Enter your password', isPassword: true),
             Gap(16),
             Text(
               "Forget your password?",
@@ -65,37 +72,47 @@ class LoginView extends StatelessWidget {
             Gap(30),
             Row(
               children: [
-                const Expanded(
-                  child: Divider(color: Colors.white, thickness: 1),
+                Expanded(
+                  child: Divider(
+                    color: isLight ? Colors.black : Colors.white,
+                    thickness: 1,
+                  ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: CustomText(
                     text: 'or',
 
-                    color: Colors.white,
+                    color: isLight ? Colors.black : Colors.white,
                     size: 14,
                     weight: FontWeight.w500,
                   ),
                 ),
-                const Expanded(
-                  child: Divider(color: Colors.white, thickness: 1),
+                Expanded(
+                  child: Divider(
+                    color: isLight ? Colors.black : Colors.white,
+                    thickness: 1,
+                  ),
                 ),
               ],
             ),
             Gap(30),
             GoogleSignInButton(
               onPressed: () {},
-              image: 'assets/auth/google.png',
+
               txt: 'Continue with Google',
+              lightImage: 'assets/auth/google.png',
+              darkImage: 'assets/auth/google.png',
             ),
             Gap(30),
             GoogleSignInButton(
               onPressed: () {},
-              image: 'assets/auth/apple.png',
+
               txt: 'Continue with Apple',
+              lightImage: 'assets/auth/apple.light.png',
+              darkImage: 'assets/auth/apple.png',
             ),
-            Gap(80),
+            Gap(30),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 12),
               width: double.infinity,

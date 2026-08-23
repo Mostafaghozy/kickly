@@ -13,6 +13,8 @@ class SignInView2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -21,11 +23,17 @@ class SignInView2 extends StatelessWidget {
           children: [
             const Gap(100),
             Center(
-              child: Image.asset(
-                "assets/appbar/logo.png",
-                width: 279,
-                height: 90,
-              ),
+              child: isLight
+                  ? Image.asset(
+                      "assets/auth/logo.light.png",
+                      width: 279,
+                      height: 90,
+                    )
+                  : Image.asset(
+                      "assets/appbar/logo.png",
+                      width: 279,
+                      height: 90,
+                    ),
             ),
             const Gap(25),
             const CustomText(text: "Email", weight: FontWeight.w700, size: 14),
