@@ -11,18 +11,17 @@ class SportChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isLight ? Colors.white : Colors.black,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Colors.grey
-                  : Colors.black,
+              color: isLight ? Colors.grey : Colors.black,
               blurRadius: 4,
               spreadRadius: 0,
               offset: const Offset(0, 4),
@@ -38,7 +37,7 @@ class SportChip extends StatelessWidget {
               text: title,
               size: 12,
               weight: FontWeight.w600,
-              color: Colors.black,
+              color: isLight ? Colors.black : Colors.white,
             ),
           ],
         ),

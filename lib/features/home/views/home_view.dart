@@ -6,12 +6,14 @@ import 'package:kickly/shared/banner_widget.dart';
 import 'package:kickly/features/home/widgets/home_card_widget.dart';
 import 'package:kickly/features/home/widgets/sport_category_widget.dart';
 import 'package:kickly/shared/custom_text.dart';
+import 'package:kickly/shared/details_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
     return Scaffold(
       appBar: const CustomAppBarWidget(),
       body: Padding(
@@ -36,14 +38,21 @@ class HomeView extends StatelessWidget {
                   CustomText(text: "Nearby for you", size: 20),
                   CustomText(
                     text: "View all",
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? AppColors.lightLink
-                        : AppColors.darkText,
+                    color: isLight ? AppColors.lightLink : AppColors.darkText,
                   ),
                 ],
               ),
               Gap(25),
-              const HomeCardWidget(),
+              HomeCardWidget(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DetailsWidget(),
+                    ),
+                  );
+                },
+              ),
               Gap(25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,9 +60,7 @@ class HomeView extends StatelessWidget {
                   CustomText(text: "Top Rated", size: 20),
                   CustomText(
                     text: "View all",
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? AppColors.lightLink
-                        : AppColors.darkText,
+                    color: isLight ? AppColors.lightLink : AppColors.darkText,
                   ),
                 ],
               ),
