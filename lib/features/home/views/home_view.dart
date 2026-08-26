@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:kickly/core/constants/app_colors.dart';
+import 'package:kickly/features/details/view/details_view.dart';
 import 'package:kickly/shared/custom_app_bar_widget.dart';
 import 'package:kickly/shared/banner_widget.dart';
 import 'package:kickly/features/home/widgets/home_card_widget.dart';
 import 'package:kickly/features/home/widgets/sport_category_widget.dart';
 import 'package:kickly/shared/custom_text.dart';
-import 'package:kickly/shared/details_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -48,7 +48,7 @@ class HomeView extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DetailsWidget(),
+                      builder: (context) => const DetailsView(),
                     ),
                   );
                 },
