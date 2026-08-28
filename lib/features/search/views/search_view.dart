@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:kickly/features/search/widgets/football_screen.dart';
 import 'package:kickly/features/search/widgets/search_widget.dart';
 import 'package:kickly/features/search/widgets/sport_chip.dart';
 import 'package:kickly/shared/banner_widget.dart';
@@ -36,7 +37,18 @@ class SearchView extends StatelessWidget {
                 spacing: 10,
                 runSpacing: 12,
                 children: [
-                  SportChip(icon: '⚽', title: 'Football', onTap: () {}),
+                  SportChip(
+                    icon: '⚽',
+                    title: 'Football',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FootballScreen(),
+                        ),
+                      );
+                    },
+                  ),
                   SportChip(icon: '🏀', title: 'Basketball', onTap: () {}),
                   SportChip(icon: '🏓', title: 'Padel', onTap: () {}),
                   SportChip(icon: '🏐', title: 'Volleyball', onTap: () {}),

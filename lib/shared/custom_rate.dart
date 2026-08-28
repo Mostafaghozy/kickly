@@ -11,8 +11,18 @@ class CustomRate extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
-        color: isLight ? Color(0xffD9D9D9) : Colors.black,
+        color: isLight ? Colors.white : Colors.black,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: isLight
+                ? Colors.grey.withOpacity(0.80)
+                : Colors.black.withOpacity(0.80),
+            blurRadius: 4,
+            spreadRadius: 0,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: CustomText(
         text: "⭐ $rate",

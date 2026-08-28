@@ -14,22 +14,24 @@ class SearchWidget extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Container(
-        height: 40,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: 42,
+        padding: EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.grey.shade300, width: .5),
+          border: Border.all(color: Colors.grey, width: 0.5),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.02),
-              blurRadius: 15,
+              color: Colors.transparent.withOpacity(0.02),
+
+              blurRadius: 0,
+              spreadRadius: 0,
               offset: const Offset(0, 0),
             ),
           ],
         ),
         child: Row(
           children: [
-            Icon(Icons.search, color: Colors.grey.shade400, size: 24),
+            Icon(Icons.search, color: Colors.grey.shade400, size: 20),
             const SizedBox(width: 10),
             Expanded(
               child: TextField(
@@ -37,8 +39,8 @@ class SearchWidget extends StatelessWidget {
                   hintText: 'Search',
                   hintStyle: TextStyle(
                     color: Colors.grey.shade400,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
                   ),
                   border: InputBorder.none,
                   enabledBorder: InputBorder.none,

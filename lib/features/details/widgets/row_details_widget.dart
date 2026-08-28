@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:kickly/core/constants/app_colors.dart';
 import 'package:kickly/shared/custom_text.dart';
 
 class RowDetailsWidget extends StatelessWidget {
@@ -7,6 +8,7 @@ class RowDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -17,7 +19,11 @@ class RowDetailsWidget extends StatelessWidget {
             Gap(5),
             Row(
               children: [
-                Icon(Icons.location_on, color: Colors.white, size: 15),
+                Icon(
+                  Icons.location_on,
+                  color: isLight ? AppColors.lightLink : Colors.white,
+                  size: 15,
+                ),
                 const Gap(4),
                 CustomText(
                   text: 'Nasr city, Cairo',

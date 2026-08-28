@@ -13,8 +13,8 @@ void main() {
       enabled: !kReleaseMode,
       builder: (context) => MyApp(), // Wrap your app
     ),
-    // const MyApp(),
   );
+  // const MyApp();
 }
 
 class MyApp extends StatelessWidget {

@@ -5,9 +5,16 @@ import 'package:kickly/shared/custom_text.dart';
 class SportChip extends StatelessWidget {
   final String title;
   final String? icon;
+  final IconData? icons;
   final VoidCallback? onTap;
 
-  const SportChip({super.key, required this.title, this.icon, this.onTap});
+  const SportChip({
+    super.key,
+    required this.title,
+    this.icon,
+    this.icons,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,9 @@ class SportChip extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: isLight ? Colors.grey : Colors.black,
+              color: isLight
+                  ? Colors.grey.withOpacity(0.80)
+                  : Colors.black.withOpacity(0.80),
               blurRadius: 4,
               spreadRadius: 0,
               offset: const Offset(0, 4),

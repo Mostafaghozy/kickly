@@ -9,6 +9,7 @@ class CustomAppBarWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: AppColors.primary,
       title: Image.asset("assets/appbar/logo.png", width: 100),
       centerTitle: false,
