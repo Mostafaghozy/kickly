@@ -19,42 +19,27 @@ class GoogleSignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final isLight = Theme.of(context).brightness == Brightness.light;
 
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        width: double.infinity,
-        height: 40,
-        decoration: BoxDecoration(
-          color: isLight ? Colors.white : Colors.grey.shade900,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: Colors.grey.shade200,
-            width: isLight ? 3 : 1,
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: isLight ? Colors.white : Colors.grey.shade900,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(color: Colors.grey.shade400, width: 0.5),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(isLight ? lightImage : darkImage, fit: BoxFit.cover),
+          const SizedBox(width: 50),
+          CustomText(
+            text: txt,
+            weight: FontWeight.w700,
+            size: 14,
+            color: isLight ? Colors.black : Colors.white,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: isLight
-                  ? Colors.transparent.withOpacity(0.50)
-                  : Colors.transparent.withOpacity(0.80),
-              blurRadius: 4,
-              spreadRadius: 0,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(isLight ? lightImage : darkImage, fit: BoxFit.cover),
-            const SizedBox(width: 50),
-            CustomText(
-              text: txt,
-              weight: FontWeight.w700,
-              size: 14,
-              color: isLight ? Colors.black : Colors.white,
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }
