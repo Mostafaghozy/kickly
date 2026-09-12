@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kickly/core/themes/app_theme.dart';
 import 'package:kickly/features/auth/views/sign_in_view.dart';
 import 'package:kickly/features/auth/views/sign_in_view_2.dart';
-import 'package:kickly/features/profile/widgets/payment_method.dart';
+import 'package:kickly/features/payment/view/payment_method_view.dart';
 import 'package:kickly/root.dart';
 import 'package:kickly/features/auth/views/login_view.dart';
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
-      home: const PaymentMethod(),
+      home: const PaymentMethodView(),
     );
   }
 }
