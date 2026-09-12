@@ -4,10 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:kickly/core/constants/app_colors.dart';
 import 'package:kickly/features/onboarding/widgets/custom_button.dart';
-import 'package:kickly/features/payment/widgets/billing_txt_field.dart';
-import 'package:kickly/features/payment/widgets/drop_down_button_widget.dart';
-import 'package:kickly/features/payment/widgets/field_label.dart';
-import 'package:kickly/features/payment/widgets/postal_formatter.dart';
+import 'package:kickly/features/profile/widgets/billing_txt_field.dart';
+import 'package:kickly/features/profile/widgets/drop_down_button_widget.dart';
+import 'package:kickly/features/profile/widgets/field_label.dart';
+import 'package:kickly/features/profile/widgets/postal_formatter.dart';
 import 'package:kickly/shared/custom_text.dart';
 
 class BillingAddressField extends StatelessWidget {

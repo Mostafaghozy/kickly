@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:kickly/core/constants/app_colors.dart';
 import 'package:kickly/features/onboarding/widgets/custom_button.dart';
-import 'package:kickly/features/payment/widgets/billing_address_field.dart';
-import 'package:kickly/features/payment/widgets/field_card_details.dart';
-import 'package:kickly/features/payment/view/payment_method_view.dart';
+import 'package:kickly/features/profile/widgets/billing_address_field.dart';
+import 'package:kickly/features/profile/widgets/field_card_details.dart';
+import 'package:kickly/features/profile/widgets/payment_method.dart';
 import 'package:kickly/shared/appbar_profile_items.dart';
 import 'package:kickly/shared/custom_text.dart';
 
@@ -13,8 +13,8 @@ class CardDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLight = Theme.of(context).brightness == Brightness.light;
     return Scaffold(
+      // backgroundColor: Colors.grey[50],
       appBar: const AppBarProfileItems(txt: "Card Payment"),
 
       body: SingleChildScrollView(
@@ -44,7 +44,7 @@ class CardDetails extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PaymentMethodView(),
+                      builder: (context) => const PaymentMethod(),
                     ),
                   );
                 },

@@ -22,21 +22,18 @@ class _DropDownButtonWidgetState extends State<DropDownButtonWidget> {
           style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
         ),
 
-        items: [
+        items: const [
           DropdownMenuItem(
             value: "Egypt",
-            child: CustomText(text: "Egypt", color: Colors.black),
+            child: CustomText(text: "Egypt"),
           ),
           DropdownMenuItem(
             value: "Saudi Arabia",
-            child: CustomText(text: "Saudi Arabia", color: Colors.black),
+            child: CustomText(text: "Saudi Arabia"),
           ),
           DropdownMenuItem(
             value: "United Arab Emirates",
-            child: CustomText(
-              text: "United Arab Emirates",
-              color: Colors.black,
-            ),
+            child: CustomText(text: "United Arab Emirates"),
           ),
         ],
         onChanged: (value) {

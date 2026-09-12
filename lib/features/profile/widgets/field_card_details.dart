@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:kickly/features/payment/widgets/card_input_field.dart';
-import 'package:kickly/features/payment/widgets/card_number_formatter.dart';
-import 'package:kickly/features/payment/widgets/card_expiration_formatter.dart';
-import 'package:kickly/features/payment/widgets/cvc_formatter.dart';
-import 'package:kickly/features/payment/widgets/field_label.dart';
+import 'package:kickly/features/profile/widgets/card_input_field.dart';
+import 'package:kickly/features/profile/widgets/card_number_formatter.dart';
+import 'package:kickly/features/profile/widgets/card_expiration_formatter.dart';
+import 'package:kickly/features/profile/widgets/cvc_formatter.dart';
+import 'package:kickly/features/profile/widgets/field_label.dart';
 
 class FieldCardDetails extends StatelessWidget {
   const FieldCardDetails({super.key});

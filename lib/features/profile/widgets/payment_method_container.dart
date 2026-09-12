@@ -15,17 +15,24 @@ class PaymentMethodContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 42,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          elevation: 5,
-          backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(12),
-            side: BorderSide(color: Colors.grey.shade400, width: 0.5),
-          ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12),
+        height: 45,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.90),
+
+              blurRadius: 6,
+              spreadRadius: 0,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +41,12 @@ class PaymentMethodContainer extends StatelessWidget {
               children: [
                 icon,
                 Gap(10),
-                CustomText(text: txt, color: Colors.black),
+                CustomText(
+                  text: txt,
+                  size: 14,
+                  weight: FontWeight.w600,
+                  color: Colors.black,
+                ),
               ],
             ),
 

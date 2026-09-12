@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class CardInputField extends StatelessWidget {
+class BillingTxtField extends StatelessWidget {
   final String hintText;
-  final TextInputType keyboardType;
-  final IconData? prefixIcon;
+  final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
 
-  const CardInputField({
+  const BillingTxtField({
     super.key,
     required this.hintText,
-    this.keyboardType = TextInputType.text,
-    this.prefixIcon,
+    this.keyboardType,
     this.inputFormatters,
   });
 
@@ -20,14 +18,16 @@ class CardInputField extends StatelessWidget {
     return SizedBox(
       height: 38,
       child: TextField(
-        cursorHeight: 18,
-        cursorWidth: 1,
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
+
+        // Cursor
+        cursorHeight: 18,
+        cursorWidth: 1,
+
         style: const TextStyle(
-          fontSize: 16,
+          fontSize: 14,
           color: Colors.black,
-          fontWeight: FontWeight.w700,
           fontFamily: "Mulish",
         ),
         decoration: InputDecoration(
@@ -37,13 +37,7 @@ class CardInputField extends StatelessWidget {
             color: Color(0xFFB5B9C5),
             fontFamily: "Mulish",
           ),
-          prefixIcon: prefixIcon != null
-              ? Icon(prefixIcon, size: 17, color: Colors.black87)
-              : null,
-          prefixIconConstraints: const BoxConstraints(
-            minWidth: 40,
-            minHeight: 40,
-          ),
+
           filled: true,
           fillColor: Colors.white,
           contentPadding: const EdgeInsets.symmetric(

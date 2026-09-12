@@ -33,41 +33,60 @@ class _CustomFormFiledState extends State<CustomFormFiled> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    final isLight = Theme.of(context).brightness == Brightness.light;
+
+    return Container(
+      width: double.infinity,
       height: 42,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 4,
+            spreadRadius: 0,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
       child: TextFormField(
-        cursorHeight: 18,
-        cursorWidth: 1,
-        cursorColor: Colors.black,
         style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w700,
           color: Colors.black,
-          fontFamily: "Mulish",
+          fontSize: 14,
+          fontWeight: FontWeight.w700,
+          fontFamily: "Mulish-Bold.ttf",
         ),
         obscureText: _isObscure,
         decoration: InputDecoration(
           hintText: widget.hintText,
-          hintStyle: const TextStyle(
-            fontSize: 12,
-            color: Color(0xFFB5B9C5),
-            fontFamily: "Mulish",
+          hintStyle: TextStyle(
+            color: Colors.grey.shade400,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            fontFamily: "Mulish-SemiBold.ttf",
           ),
           filled: true,
           fillColor: Colors.white,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 0,
+
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide.none,
           ),
 
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.grey.shade400, width: 0.5),
+            borderSide: BorderSide(
+              color: isLight ? Colors.grey.shade200 : Colors.white,
+              width: 2,
+            ),
           ),
 
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.grey.shade400, width: 0.5),
+            borderSide: BorderSide(
+              color: isLight ? Colors.grey.shade200 : Colors.white,
+              width: 2,
+            ),
           ),
           suffixIconColor: AppColors.primary,
 

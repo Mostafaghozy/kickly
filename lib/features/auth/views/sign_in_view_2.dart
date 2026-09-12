@@ -65,7 +65,7 @@ class SignInView2 extends StatelessWidget {
               size: 14,
             ),
             Gap(10),
-            CustomFormFiled(hintText: 'Enter your password', isPassword: true),
+            CustomFormFiled(hintText: 'Enter your password', isPassword: false),
             const Gap(15),
             const CustomText(
               text: "Confirm Password",
@@ -75,7 +75,7 @@ class SignInView2 extends StatelessWidget {
             Gap(10),
             CustomFormFiled(
               hintText: 'Confirm your password',
-              isPassword: true,
+              isPassword: false,
             ),
 
             const Gap(50),

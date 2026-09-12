@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:kickly/features/payment/widgets/card_details.dart';
-import 'package:kickly/features/payment/widgets/payment_method_container.dart';
+import 'package:kickly/features/profile/widgets/card_details.dart';
+import 'package:kickly/features/profile/widgets/payment_method_container.dart';
 import 'package:kickly/shared/appbar_profile_items.dart';
 import 'package:kickly/shared/custom_text.dart';
 
-class PaymentMethodView extends StatelessWidget {
-  const PaymentMethodView({super.key});
+class PaymentMethod extends StatelessWidget {
+  const PaymentMethod({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,7 @@ class PaymentMethodView extends StatelessWidget {
             Gap(25),
             PaymentMethodContainer(
               txt: 'Credit Card',
-              icon: const Icon(
-                Icons.credit_card,
-                color: Colors.black,
-                size: 25,
-              ),
+              icon: const Icon(Icons.credit_card, color: Colors.black),
               onTap: () {
                 Navigator.push(
                   context,
@@ -39,7 +35,7 @@ class PaymentMethodView extends StatelessWidget {
             Gap(20),
             PaymentMethodContainer(
               txt: 'Apple Pay',
-              icon: const Icon(Icons.apple, color: Colors.black, size: 25),
+              icon: const Icon(Icons.apple, color: Colors.black),
               onTap: () {},
             ),
             Gap(20),
@@ -47,8 +43,8 @@ class PaymentMethodView extends StatelessWidget {
               txt: 'Vodafone Cash',
               icon: Image.asset(
                 'assets/profile/vodafone_icon.png',
-                width: 25,
-                height: 25,
+                width: 20,
+                height: 20,
                 fit: BoxFit.contain,
               ),
               onTap: () {},
