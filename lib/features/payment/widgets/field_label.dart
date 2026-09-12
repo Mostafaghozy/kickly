@@ -9,11 +9,6 @@ class FieldLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomText(
-      text: text,
-      size: size ?? 14,
-      weight: FontWeight.w600,
-      color: Colors.black,
-    );
+    return CustomText(text: text, size: size ?? 14, weight: FontWeight.w600);
   }
 }
