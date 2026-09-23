@@ -34,7 +34,6 @@ class _RootState extends State<Root> {
       ),
 
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 2, vertical: 1),
         decoration: BoxDecoration(color: AppColors.primary),
         child: BottomNavigationBar(
           elevation: 0,
@@ -48,8 +47,8 @@ class _RootState extends State<Root> {
           ),
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white70,
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
           currentIndex: currentScreen,
           onTap: (index) {
             setState(() => currentScreen = index);
@@ -60,7 +59,7 @@ class _RootState extends State<Root> {
             BottomNavigationBarItem(
               icon: Icon(Icons.home, color: Colors.grey.shade400),
               activeIcon: Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(3),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
@@ -70,9 +69,9 @@ class _RootState extends State<Root> {
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.search, color: Colors.grey.shade400),
+              icon: Icon(Icons.search, color: Colors.grey.shade400),
               activeIcon: Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(3),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
@@ -87,27 +86,24 @@ class _RootState extends State<Root> {
                 color: Colors.grey.shade400,
               ),
               activeIcon: Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(3),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
-                  Icons.favorite_border_outlined,
-                  color: AppColors.primary,
-                ),
+                child: Icon(Icons.favorite, color: AppColors.primary),
               ),
               label: "Favorite",
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.person, color: Colors.grey.shade400),
               activeIcon: Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(3),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(CupertinoIcons.person, color: AppColors.primary),
+                child: Icon(Icons.person, color: AppColors.primary),
               ),
               label: "Profile",
             ),

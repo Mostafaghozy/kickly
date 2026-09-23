@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBarWidget(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 4),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
