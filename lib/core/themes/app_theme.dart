@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:kickly/core/constants/app_colors.dart';
 
 class AppTheme {
+  static final ValueNotifier<bool> darkMode = ValueNotifier<bool>(false);
+
+  static void setDarkMode(bool value) {
+    darkMode.value = value;
+  }
+
+  static ThemeMode get themeMode =>
+      darkMode.value ? ThemeMode.dark : ThemeMode.light;
+
   static ThemeData get light {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      scaffoldBackgroundColor: Colors.grey[100],
+      scaffoldBackgroundColor: Colors.grey[200],
       primaryColor: AppColors.primary,
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,

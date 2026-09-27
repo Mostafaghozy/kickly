@@ -23,37 +23,42 @@ class HomeCardBottomWidget extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CustomText(
-                text: 'Nasr city field',
-                color: Theme.of(context).brightness == Brightness.light
-                    ? AppColors.darkBackground
-                    : AppColors.darkText,
-              ),
-              const Gap(8),
-              Row(
-                children: [
-                  Icon(
-                    Icons.location_on,
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? AppColors.lightLink
-                        : AppColors.darkText,
-                    size: 15,
-                  ),
-                  const Gap(4),
-                  CustomText(
-                    text: 'Nasr city, Cairo',
-                    size: 12,
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? Colors.grey.shade700
-                        : Colors.grey.shade400,
-                  ),
-                ],
-              ),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: 'Nasr city field',
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? AppColors.darkBackground
+                      : AppColors.darkText,
+                ),
+                const Gap(8),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? AppColors.lightLink
+                          : AppColors.darkText,
+                      size: 15,
+                    ),
+                    const Gap(4),
+                    Expanded(
+                      child: CustomText(
+                        text: 'Nasr city, Cairo',
+                        size: 12,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? Colors.grey.shade700
+                            : Colors.grey.shade400,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
