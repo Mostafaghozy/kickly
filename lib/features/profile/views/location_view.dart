@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:kickly/features/profile/views/add_new_address_view.dart';
 import 'package:kickly/shared/appbar_profile_items.dart';
 import 'package:kickly/shared/custom_app_bar_widget.dart';
+import 'package:kickly/shared/custom_text.dart';
 
 import '../widgets/address_field.dart';
 import '../widgets/location_map_card.dart';
@@ -36,6 +38,8 @@ class _LocationViewState extends State<LocationView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              CustomText(text: "Address", size: 16),
+              Gap(12),
               // Address
               AddressField(controller: addressController),
 

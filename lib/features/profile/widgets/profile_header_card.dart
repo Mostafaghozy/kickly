@@ -40,7 +40,7 @@ class ProfileHeaderCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(text: name, size: 15),
+              CustomText(text: name, size: 15, color: Colors.black),
 
               const SizedBox(height: 4),
 
