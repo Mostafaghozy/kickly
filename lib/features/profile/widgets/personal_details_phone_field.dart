@@ -22,9 +22,9 @@ class PersonalDetailsPhoneField extends StatelessWidget {
         controller: controller,
         keyboardType: TextInputType.phone,
         style: const TextStyle(
-          fontSize: 16,
+          fontSize: 15,
           color: Colors.black,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           fontFamily: "Mulish",
         ),
         decoration: InputDecoration(

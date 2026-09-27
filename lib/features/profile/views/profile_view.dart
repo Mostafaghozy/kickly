@@ -4,6 +4,8 @@ import 'package:kickly/core/constants/app_colors.dart';
 import 'package:kickly/core/themes/app_theme.dart';
 import 'package:kickly/features/onboarding/widgets/custom_button.dart';
 import 'package:kickly/features/payment/view/payment_method_view.dart';
+import 'package:kickly/features/profile/views/about_view.dart';
+import 'package:kickly/features/profile/views/location_view.dart';
 import 'package:kickly/features/profile/views/personal_details_view.dart';
 import 'package:kickly/features/profile/widgets/logout_button.dart';
 import 'package:kickly/shared/custom_app_bar_widget.dart';
@@ -132,7 +134,12 @@ class _ProfileViewState extends State<ProfileView> {
                 title: 'Location',
                 trailing: PreferenceTrailing.arrow,
                 onTap: () {
-                  // TODO: Location
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LocationView(),
+                    ),
+                  );
                 },
               ),
               Gap(30),
@@ -191,7 +198,10 @@ class _ProfileViewState extends State<ProfileView> {
                 widget: const Icon(Icons.info_outline),
                 title: 'About App',
                 onTap: () {
-                  // TODO: Navigate to personal details
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AboutView()),
+                  );
                 },
               ),
 

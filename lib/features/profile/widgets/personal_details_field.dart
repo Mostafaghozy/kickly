@@ -27,9 +27,9 @@ class PersonalDetailsField extends StatelessWidget {
         controller: controller,
 
         style: const TextStyle(
-          fontSize: 16,
+          fontSize: 15,
           color: Colors.black,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           fontFamily: "Mulish",
         ),
         decoration: InputDecoration(
