@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kickly/shared/custom_text.dart';
 
 class AddressField extends StatelessWidget {
   const AddressField({super.key, required this.controller});
@@ -7,49 +8,26 @@ class AddressField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Address',
-          style: TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-            color: Colors.black,
+    return SizedBox(
+      height: 39,
+      child: TextField(
+        controller: controller,
+        style: const TextStyle(fontSize: 12, color: Colors.black87),
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
+
+          contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Colors.grey.shade400, width: 0.5),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Colors.grey.shade400),
           ),
         ),
-
-        const SizedBox(height: 8),
-
-        SizedBox(
-          height: 39,
-          child: TextField(
-            controller: controller,
-            style: const TextStyle(fontSize: 12, color: Colors.black87),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-
-              contentPadding: const EdgeInsets.symmetric(horizontal: 14),
-
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9),
-                borderSide: BorderSide.none,
-              ),
-
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9),
-                borderSide: BorderSide.none,
-              ),
-
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9),
-                borderSide: BorderSide.none,
-              ),
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

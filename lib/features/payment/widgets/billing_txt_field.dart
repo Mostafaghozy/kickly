@@ -26,9 +26,9 @@ class BillingTxtField extends StatelessWidget {
         cursorWidth: 1,
 
         style: const TextStyle(
-          fontSize: 16,
+          fontSize: 15,
           color: Colors.black,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           fontFamily: "Mulish",
         ),
         decoration: InputDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kickly/features/profile/views/add_new_address_view.dart';
 import 'package:kickly/shared/appbar_profile_items.dart';
 import 'package:kickly/shared/custom_app_bar_widget.dart';
 
@@ -27,8 +28,6 @@ class _LocationViewState extends State<LocationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEBF5EF),
-
       appBar: const AppBarProfileItems(txt: 'Location'),
 
       body: SafeArea(
@@ -55,6 +54,12 @@ class _LocationViewState extends State<LocationView> {
               AddAddressButton(
                 onPressed: () {
                   _addNewAddress();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AddNewAddressView(),
+                    ),
+                  );
                 },
               ),
             ],
