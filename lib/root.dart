@@ -13,6 +13,8 @@ class Root extends StatefulWidget {
   State<Root> createState() => _RootState();
 }
 
+final GlobalKey<SearchViewState> searchKey = GlobalKey<SearchViewState>();
+
 class _RootState extends State<Root> {
   late PageController controller;
   late List<Widget> screens;
@@ -20,7 +22,12 @@ class _RootState extends State<Root> {
   @override
   void initState() {
     controller = PageController(initialPage: currentScreen);
-    screens = [HomeView(), SearchView(), FavoriteView(), ProfileView()];
+    screens = [
+      HomeView(),
+      SearchView(key: searchKey),
+      FavoriteView(),
+      ProfileView(),
+    ];
     super.initState();
   }
 
@@ -51,8 +58,15 @@ class _RootState extends State<Root> {
           unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
           currentIndex: currentScreen,
           onTap: (index) {
-            setState(() => currentScreen = index);
-            controller.jumpToPage(currentScreen);
+            if (index == 1) {
+              searchKey.currentState?.showSearchHome();
+            }
+
+            setState(() {
+              currentScreen = index;
+            });
+
+            controller.jumpToPage(index);
           },
 
           items: [
