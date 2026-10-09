@@ -35,11 +35,11 @@ class SignInView2 extends StatelessWidget {
                       height: 90,
                     ),
             ),
-            const Gap(25),
+            const Gap(20),
             const CustomText(text: "Email", weight: FontWeight.w700, size: 14),
             Gap(10),
             CustomFormFiled(hintText: 'Enter your email', isPassword: false),
-            const Gap(15),
+            const Gap(10),
             const CustomText(
               text: "Phone number",
               weight: FontWeight.w700,
@@ -50,15 +50,29 @@ class SignInView2 extends StatelessWidget {
               hintText: 'Enter your phone number',
               isPassword: false,
             ),
-            const Gap(15),
+            const Gap(10),
             const CustomText(
-              text: "Full Name",
+              text: "First Name",
               weight: FontWeight.w700,
               size: 14,
             ),
             Gap(10),
-            CustomFormFiled(hintText: 'Enter your Name', isPassword: false),
-            const Gap(15),
+            CustomFormFiled(
+              hintText: 'Enter your first name',
+              isPassword: false,
+            ),
+            const Gap(10),
+            const CustomText(
+              text: "Last Name",
+              weight: FontWeight.w700,
+              size: 14,
+            ),
+            Gap(10),
+            CustomFormFiled(
+              hintText: 'Enter your last name',
+              isPassword: false,
+            ),
+            const Gap(10),
             const CustomText(
               text: "Password",
               weight: FontWeight.w700,
@@ -66,7 +80,7 @@ class SignInView2 extends StatelessWidget {
             ),
             Gap(10),
             CustomFormFiled(hintText: 'Enter your password', isPassword: true),
-            const Gap(15),
+            const Gap(10),
             const CustomText(
               text: "Confirm Password",
               weight: FontWeight.w700,
@@ -78,7 +92,7 @@ class SignInView2 extends StatelessWidget {
               isPassword: true,
             ),
 
-            const Gap(50),
+            const Gap(30),
             CustomButton(
               label: "Sign up",
               onPressed: () {
@@ -88,7 +102,7 @@ class SignInView2 extends StatelessWidget {
                 );
               },
             ),
-            Gap(30),
+            Gap(10),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 12),
               width: double.infinity,

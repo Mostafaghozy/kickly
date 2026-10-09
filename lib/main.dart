@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kickly/core/themes/app_theme.dart';
+import 'package:kickly/features/auth/views/login_view.dart';
 import 'package:kickly/root.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
           themeMode: AppTheme.themeMode,
-          home: const Root(),
+          home: const LoginView(),
         );
       },
     );
