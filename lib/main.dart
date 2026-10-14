@@ -3,11 +3,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kickly/core/themes/app_theme.dart';
 import 'package:kickly/features/auth/views/login_view.dart';
+import 'package:kickly/features/auth/views/sign_in_view.dart';
+import 'package:kickly/features/auth/views/sign_in_view_2.dart';
 import 'package:kickly/root.dart';
 
 void main() {
   runApp(
-    DevicePreview(enabled: !kReleaseMode, builder: (context) => const MyApp()),
+    // DevicePreview(enabled: !kReleaseMode, builder: (context) => const MyApp()),
+    const MyApp(),
   );
 }
 
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
           themeMode: AppTheme.themeMode,
-          home: const LoginView(),
+          home: const SignInView(),
         );
       },
     );

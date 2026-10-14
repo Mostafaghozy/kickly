@@ -7,10 +7,12 @@ class CustomFormFiled extends StatefulWidget {
     super.key,
     required this.hintText,
     required this.isPassword,
+    this.controller,
   });
 
   final String hintText;
   final bool isPassword;
+  final TextEditingController? controller;
 
   @override
   State<CustomFormFiled> createState() => _CustomFormFiledState();
@@ -36,12 +38,13 @@ class _CustomFormFiledState extends State<CustomFormFiled> {
     return SizedBox(
       height: 42,
       child: TextFormField(
+        controller: widget.controller,
         cursorHeight: 18,
         cursorWidth: 1,
         cursorColor: Colors.black,
         style: const TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           color: Colors.black,
           fontFamily: "Mulish",
         ),
@@ -49,7 +52,7 @@ class _CustomFormFiledState extends State<CustomFormFiled> {
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: const TextStyle(
-            fontSize: 12,
+            fontSize: 13,
             color: Color(0xFFB5B9C5),
             fontFamily: "Mulish",
           ),

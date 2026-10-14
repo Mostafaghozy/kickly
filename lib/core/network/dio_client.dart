@@ -4,7 +4,7 @@ import 'package:kickly/core/utils/pref_helpers.dart';
 class DioClient {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: "https://kickly-production.up.railway.app/api",
+      baseUrl: "https://kickly-production.up.railway.app",
       headers: {"Content-Type": "application/json"},
     ),
   );

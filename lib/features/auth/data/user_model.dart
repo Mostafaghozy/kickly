@@ -1,29 +1,37 @@
 class UserModel {
-  final String email;
+  final int userId;
   final String firstName;
   final String lastName;
-  final String phoneNumber;
-  final String password;
-
-  final String? token;
+  final String email;
+  final int role;
+  final String accessToken;
+  final String? refreshToken;
+  final String? accessTokenExpiresAtUtc;
+  final String? refreshTokenExpiresAtUtc;
 
   UserModel({
-    required this.email,
+    required this.userId,
     required this.firstName,
     required this.lastName,
-    required this.phoneNumber,
-    required this.password,
-    this.token,
+    required this.email,
+    required this.role,
+    required this.accessToken,
+    this.refreshToken,
+    this.accessTokenExpiresAtUtc,
+    this.refreshTokenExpiresAtUtc,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      email: json['email'] as String,
+      userId: (json['userId'] as num).toInt(),
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
-      phoneNumber: json['phoneNumber'] as String,
-      password: json['password'] as String,
-      token: json['accessToken'] as String?,
+      email: json['email'] as String,
+      role: (json['role'] as num).toInt(),
+      accessToken: json['accessToken'] as String,
+      refreshToken: json['refreshToken'] as String?,
+      accessTokenExpiresAtUtc: json['accessTokenExpiresAtUtc'] as String?,
+      refreshTokenExpiresAtUtc: json['refreshTokenExpiresAtUtc'] as String?,
     );
   }
 }
