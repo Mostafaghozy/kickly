@@ -7,12 +7,14 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.color,
     this.backgroundColor,
+    this.isLoading = false,
   });
 
   final String txt;
   final VoidCallback onPressed;
   final Color? color;
   final Color? backgroundColor;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +31,25 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: Text(
-          txt,
-          style: TextStyle(
-            fontSize: 15,
-            fontFamily: "Mulish-ExtraBold.ttf",
-            fontWeight: FontWeight.w800,
-          ),
-        ),
+        child: isLoading
+            ? SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.5,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    color ?? Colors.black,
+                  ),
+                ),
+              )
+            : Text(
+                txt,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontFamily: "Mulish-ExtraBold.ttf",
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
       ),
     );
   }

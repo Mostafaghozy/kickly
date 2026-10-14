@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:kickly/core/constants/app_colors.dart';
+import 'package:kickly/core/network/api_errors.dart';
 import 'package:kickly/core/themes/app_theme.dart';
-import 'package:kickly/features/onboarding/widgets/custom_button.dart';
+import 'package:kickly/features/auth/data/auth_repo.dart';
+import 'package:kickly/features/auth/views/login_view.dart';
 import 'package:kickly/features/payment/view/payment_method_view.dart';
 import 'package:kickly/features/profile/views/about_view.dart';
 import 'package:kickly/features/profile/views/location_view.dart';
@@ -24,12 +26,51 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
+  final AuthRepo authRepo = AuthRepo();
+
   bool isDarkMode = AppTheme.darkMode.value;
+  bool isLoggingOut = false;
 
   @override
   void initState() {
     super.initState();
     isDarkMode = AppTheme.darkMode.value;
+  }
+
+  Future<void> _logout() async {
+    if (isLoggingOut) return;
+
+    setState(() {
+      isLoggingOut = true;
+    });
+
+    try {
+      await authRepo.logout();
+      if (!mounted) return;
+
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const LoginView()),
+        (route) => false,
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      final errorMessage = e is ApiErrors
+          ? e.detail
+          : 'Unable to log out. Please try again.';
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+          backgroundColor: Colors.red.shade700,
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          isLoggingOut = false;
+        });
+      }
+    }
   }
 
   @override
@@ -249,11 +290,12 @@ class _ProfileViewState extends State<ProfileView> {
 
               Gap(50),
               LogoutButton(
-                txt: "logout",
-                onPressed: () {},
+                txt: isLoggingOut ? "Logging out..." : "Logout",
+                onPressed: _logout,
                 color: Colors.white,
                 backgroundColor: Colors.red,
                 icon: Icons.logout,
+                isLoading: isLoggingOut,
               ),
               Gap(50),
             ],

@@ -10,6 +10,7 @@ class LogoutButton extends StatelessWidget {
     this.color,
     this.backgroundColor,
     this.icon,
+    this.isLoading = false,
   });
 
   final String txt;
@@ -17,6 +18,7 @@ class LogoutButton extends StatelessWidget {
   final Color? color;
   final Color? backgroundColor;
   final IconData? icon;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +35,29 @@ class LogoutButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: Row(
-          children: [
-            Icon(icon),
-            Gap(120),
-            CustomText(
-              text: txt,
-              size: 15,
-              weight: FontWeight.w800,
-              color: color,
-            ),
-          ],
-        ),
+        child: isLoading
+            ? SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.5,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    color ?? Colors.black,
+                  ),
+                ),
+              )
+            : Row(
+                children: [
+                  Icon(icon),
+                  Gap(120),
+                  CustomText(
+                    text: txt,
+                    size: 15,
+                    weight: FontWeight.w800,
+                    color: color,
+                  ),
+                ],
+              ),
       ),
     );
   }

@@ -8,11 +8,13 @@ class CustomFormFiled extends StatefulWidget {
     required this.hintText,
     required this.isPassword,
     this.controller,
+    this.onChanged,
   });
 
   final String hintText;
   final bool isPassword;
   final TextEditingController? controller;
+  final ValueChanged<String>? onChanged;
 
   @override
   State<CustomFormFiled> createState() => _CustomFormFiledState();
@@ -39,6 +41,7 @@ class _CustomFormFiledState extends State<CustomFormFiled> {
       height: 42,
       child: TextFormField(
         controller: widget.controller,
+        onChanged: widget.onChanged,
         cursorHeight: 18,
         cursorWidth: 1,
         cursorColor: Colors.black,

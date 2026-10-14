@@ -18,19 +18,30 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   final AuthRepo authRepo = AuthRepo();
 
+  String? emailError;
+  String? passwordError;
   bool isLoading = false;
 
   Future<void> login() async {
     if (isLoading) return;
 
     FocusScope.of(context).unfocus();
+
+    setState(() {
+      emailError = emailController.text.trim().isEmpty
+          ? 'Email or phone number is required'
+          : null;
+      passwordError = passwordController.text.trim().isEmpty
+          ? 'Password is required'
+          : null;
+    });
+
+    if (emailError != null || passwordError != null) return;
 
     setState(() {
       isLoading = true;
@@ -120,7 +131,19 @@ class _LoginViewState extends State<LoginView> {
                   hintText: 'Enter your email or phone number',
                   isPassword: false,
                   controller: emailController,
+                  onChanged: (value) {
+                    setState(() {
+                      emailError = value.trim().isEmpty
+                          ? 'Email or phone number is required'
+                          : null;
+                    });
+                  },
                 ),
+
+                if (emailError != null) ...[
+                  const Gap(4),
+                  CustomText(text: emailError!, color: Colors.red, size: 12),
+                ],
 
                 const Gap(16),
 
@@ -136,7 +159,19 @@ class _LoginViewState extends State<LoginView> {
                   hintText: 'Enter your password',
                   isPassword: true,
                   controller: passwordController,
+                  onChanged: (value) {
+                    setState(() {
+                      passwordError = value.trim().isEmpty
+                          ? 'Password is required'
+                          : null;
+                    });
+                  },
                 ),
+
+                if (passwordError != null) ...[
+                  const Gap(4),
+                  CustomText(text: passwordError!, color: Colors.red, size: 12),
+                ],
 
                 const Gap(16),
 
