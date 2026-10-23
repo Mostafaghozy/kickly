@@ -46,7 +46,7 @@ class _CustomFormFiledState extends State<CustomFormFiled> {
         cursorWidth: 1,
         cursorColor: Colors.black,
         style: const TextStyle(
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: FontWeight.w600,
           color: Colors.black,
           fontFamily: "Mulish",
@@ -55,7 +55,7 @@ class _CustomFormFiledState extends State<CustomFormFiled> {
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: const TextStyle(
-            fontSize: 13,
+            fontSize: 14,
             color: Color(0xFFB5B9C5),
             fontFamily: "Mulish",
           ),

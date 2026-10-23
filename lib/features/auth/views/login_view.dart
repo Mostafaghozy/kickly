@@ -5,6 +5,7 @@ import 'package:kickly/core/network/api_errors.dart';
 import 'package:kickly/features/auth/data/auth_repo.dart';
 import 'package:kickly/features/auth/views/sign_in_view.dart';
 import 'package:kickly/features/auth/widgets/custom_form_filed.dart';
+import 'package:kickly/features/auth/widgets/custom_snackbar.dart';
 import 'package:kickly/features/onboarding/widgets/custom_button.dart';
 import 'package:kickly/features/auth/widgets/google_sign_in_button.dart';
 import 'package:kickly/root.dart';
@@ -36,6 +37,7 @@ class _LoginViewState extends State<LoginView> {
       emailError = emailController.text.trim().isEmpty
           ? 'Email or phone number is required'
           : null;
+
       passwordError = passwordController.text.trim().isEmpty
           ? 'Password is required'
           : null;
@@ -68,14 +70,10 @@ class _LoginViewState extends State<LoginView> {
           ? e.detail
           : 'Unable to login. Please try again.';
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            errorMessage,
-            style: const TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Colors.red.shade700,
-        ),
+      CustomSnackBar.showError(
+        context,
+        title: 'Login Failed',
+        message: errorMessage,
       );
     } finally {
       if (mounted) {

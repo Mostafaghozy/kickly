@@ -270,8 +270,10 @@ class _ProfileViewState extends State<ProfileView> {
                   // TODO: Navigate to personal details
                 },
                 lastWidget: const CustomText(
-                  text: 'Connected ✓',
-                  color: AppColors.primary,
+                  // text: 'Connected ✓',
+                  // color: AppColors.primary,
+                  text: 'Not Connected',
+                  color: Colors.red,
                 ),
               ),
 

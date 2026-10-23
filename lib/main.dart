@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:kickly/core/themes/app_theme.dart';
 import 'package:kickly/features/auth/views/login_view.dart';
 import 'package:kickly/features/auth/views/sign_in_view.dart';
-import 'package:kickly/features/auth/views/sign_in_view_2.dart';
 import 'package:kickly/root.dart';
 
 void main() {

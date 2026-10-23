@@ -8,19 +8,14 @@ class ApiExceptions {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
         return ApiErrors(
-          detail: 'Connection timeout. Please try again.',
+          detail: 'Connection timed out. Please try again.',
           statusCode: statusCode,
         );
 
       case DioExceptionType.sendTimeout:
-        return ApiErrors(
-          detail: 'Sending request timed out. Please try again.',
-          statusCode: statusCode,
-        );
-
       case DioExceptionType.receiveTimeout:
         return ApiErrors(
-          detail: 'Server response timed out. Please try again.',
+          detail: 'The request took too long. Please try again.',
           statusCode: statusCode,
         );
 
@@ -32,7 +27,7 @@ class ApiExceptions {
 
       case DioExceptionType.badCertificate:
         return ApiErrors(
-          detail: 'Secure connection failed.',
+          detail: 'Unable to establish a secure connection.',
           statusCode: statusCode,
         );
 
@@ -44,18 +39,19 @@ class ApiExceptions {
 
       case DioExceptionType.cancel:
         return ApiErrors(
-          detail: 'Request was cancelled.',
+          detail: 'The request was cancelled. Please try again.',
           statusCode: statusCode,
         );
 
       case DioExceptionType.unknown:
         return ApiErrors(
-          detail: error.message ?? 'An unexpected error occurred.',
+          detail: 'Something went wrong. Please try again later.',
           statusCode: statusCode,
         );
+
       case DioExceptionType.transformTimeout:
         return ApiErrors(
-          detail: 'Response processing timed out.',
+          detail: 'Something went wrong while processing the response.',
           statusCode: statusCode,
         );
     }
@@ -80,7 +76,7 @@ class ApiExceptions {
         }
 
         if (messages.isNotEmpty) {
-          return messages.join('\n');
+          return messages.map(_toUserFriendlyMessage).join('\n');
         }
       }
 
@@ -88,16 +84,57 @@ class ApiExceptions {
       for (final key in ['message', 'detail', 'title', 'error']) {
         final value = data[key];
 
-        if (value is String && value.isNotEmpty) {
-          return value;
+        if (value is String && value.trim().isNotEmpty) {
+          return _toUserFriendlyMessage(value);
         }
       }
     }
 
-    if (data is String && data.isNotEmpty) {
-      return data;
+    if (data is String && data.trim().isNotEmpty) {
+      return _toUserFriendlyMessage(data);
     }
 
-    return error.message ?? 'Request failed. Please try again.';
+    return 'Something went wrong. Please try again later.';
+  }
+
+  static String _toUserFriendlyMessage(String message) {
+    final normalized = message.toLowerCase().trim();
+
+    // Technical/backend configuration errors
+    if (normalized.contains('application not found')) {
+      return 'We couldn’t complete your request. Please try again later.';
+    }
+
+    // Authentication errors
+    if (normalized.contains('invalid credentials') ||
+        normalized.contains('invalid email or password') ||
+        normalized.contains('incorrect password')) {
+      return 'The email or password is incorrect. Please try again.';
+    }
+
+    if (normalized.contains('unauthorized')) {
+      return 'Your session has expired. Please sign in again.';
+    }
+
+    // Registration errors
+    if (normalized.contains('email already exists') ||
+        normalized.contains('email is already registered') ||
+        normalized.contains('email already registered')) {
+      return 'This email is already registered. Please sign in instead.';
+    }
+
+    if (normalized.contains('phone number already exists') ||
+        normalized.contains('phone number is already registered')) {
+      return 'This phone number is already registered.';
+    }
+
+    // Generic server errors
+    final statusCode = normalized;
+
+    if (statusCode.contains('internal server error')) {
+      return 'Something went wrong on our side. Please try again later.';
+    }
+
+    return message;
   }
 }
